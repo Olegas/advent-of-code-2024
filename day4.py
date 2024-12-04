@@ -2,7 +2,7 @@ from collections import defaultdict
 
 import aocd
 from itertools import product
-from aocd import submit
+from util import field as get_field
 
 data = aocd.data
 data_ = """.M.S......
@@ -16,12 +16,7 @@ S.S.S.S.S.
 M.M.M.M.M.
 .........."""
 
-lines = data.splitlines()
-field = defaultdict(lambda: '.')
-for y, l in enumerate(lines):
-    for x, c in enumerate(list(l)):
-        field[x, y] = c if c in 'XMAS' else '.'
-dimension = (len(lines[0]), len(lines))
+field, dimension = get_field(aocd.data)
 around = set(product([-1, 0, 1], repeat=2)) - {(0, 0)}
 around_x = (
     (
