@@ -23,12 +23,22 @@ def arrays_of_numbers(d):
 
 
 north = (0, -1)
+south = (0, 1)
+west = (-1, 0)
+east = (1, 0)
 
 cw = {
-    (0, -1): (1, 0),
-    (1, 0): (0, 1),
-    (0, 1): (-1, 0),
-    (-1, 0): (0, -1)
+    north: east,
+    east: south,
+    south: west,
+    west: north
+}
+
+ccw = {
+    north: west,
+    west: south,
+    south: east,
+    east: north
 }
 
 
