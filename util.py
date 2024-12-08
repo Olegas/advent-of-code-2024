@@ -66,3 +66,15 @@ def vis(f, dim, draw_map):
             cc = draw_map.get((x, y)) or f[x, y]
             print(cc, end='')
     print('')
+
+
+def all_capital_letters():
+    return [chr(ord('A') + i) for i in range(0, 26)]
+
+
+def all_small_letters():
+    return [chr(ord('a') + i) for i in range(0, 26)]
+
+
+def all_digits():
+    return [str(i) for i in range(10)]

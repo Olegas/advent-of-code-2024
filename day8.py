@@ -4,7 +4,7 @@ import aocd
 from aocd import submit
 from tqdm import tqdm
 
-from util import field, inside, advance, apply, cw, north
+from util import field, inside, advance, apply, cw, north, all_capital_letters, all_digits, all_small_letters
 
 data = aocd.data
 data_ = """T....#....
@@ -18,17 +18,10 @@ data_ = """T....#....
 ....#.....
 .........."""
 
-freq_names = []
-A = "A"
-for i in range(0, 26):
-    j = chr(ord(A) + i)
-    freq_names.append(j)
-    freq_names.append(j.lower())
-for i in range(10):
-    freq_names.append(str(i))
-
+freq_names = all_capital_letters()
+freq_names.extend(all_small_letters())
+freq_names.extend(all_digits())
 fld, dim, idx = field(data, index=freq_names)
-antinodes = set()
 
 
 def pt_mx_far(p1, p2, m):
@@ -41,6 +34,7 @@ def pt_mx_far(p1, p2, m):
 
 
 def solve(part_b):
+    antinodes = set()
     for freq, positions in idx.items():
         assert len(positions) >= 2
         for pair in permutations(positions, 2):
