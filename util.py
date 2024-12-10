@@ -5,12 +5,13 @@ def lines(d):
     return d.splitlines()
 
 
-def field(d, *, index=None):
+def field(d, *, index=None, transform=None):
     r = defaultdict(lambda: '.')
     lns = lines(d)
     i = defaultdict(lambda: set())
     for y, l in enumerate(lns):
         for x, c in enumerate(list(l)):
+            c = transform(c) if transform is not None and c != '.' else c
             if index is not None and c in index:
                 i[c].add((x, y))
             r[x, y] = c
@@ -26,6 +27,7 @@ north = (0, -1)
 south = (0, 1)
 west = (-1, 0)
 east = (1, 0)
+around = (north, south, west, east)
 
 cw = {
     north: east,
