@@ -1,9 +1,6 @@
 from collections import Counter
 from math import floor, log10
-
 import aocd
-from aocd import submit
-
 from util import array_of_numbers
 
 data = aocd.data
