@@ -19,6 +19,10 @@ def field(d, *, index=None, transform=None):
     return r, d, i
 
 
+def array_of_numbers(d):
+    return [int(i) for i in d.split(' ')]
+
+
 def arrays_of_numbers(d):
     return [[int(i) for i in l.split(' ')] for l in lines(d)]
 
