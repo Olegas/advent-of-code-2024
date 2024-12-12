@@ -1,0 +1,26 @@
+<html>
+<body>
+<canvas id="c"></canvas>
+</body>
+<script type="text/javascript">
+    const m = 5;
+    fetch('./state.json').then(r => r.json()).then((data) => {
+        const c = document.getElementById('c')
+        const ctx = c.getContext('2d');
+        c.width = data.dim[0] * m;
+        c.height = data.dim[1] * m;
+        const totalDiff = data.data.length;
+        const step = 360 / totalDiff;
+        let i = -1;
+        for (const r of data.data) {
+            i++;
+            ctx.fillStyle = `hsl(${step * i}, 100%, 50%)`;
+            const [id, pts] = r;
+            for (const pt of pts) {
+                const [x, y] = pt;
+                ctx.fillRect(x * m, y * m, m, m)
+            }
+        }
+    });
+</script>
+</html>

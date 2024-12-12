@@ -28,10 +28,17 @@ def arrays_of_numbers(d):
 
 
 north = (0, -1)
+nw = (-1, -1)
+ne = (1, -1)
 south = (0, 1)
+sw = (-1, 1)
+se = (1, 1)
 west = (-1, 0)
 east = (1, 0)
+full_round = (north, south, west, east, nw, ne, sw, se)
 around = (north, south, west, east)
+hor = {west, east}
+ver = {north, south}
 
 cw = {
     north: east,
