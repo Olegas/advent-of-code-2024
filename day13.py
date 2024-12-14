@@ -44,9 +44,8 @@ def solve(part_b=False):
     for idx, m in enumerate(machines):
         ax, ay = m[0]
         bx, by = m[1]
-        tx, ty = m[2]
         a = np.array([[ax, bx], [ay, by]])
-        b = np.array([tx + inc, ty + inc])
+        b = np.array(m[2]) + inc
         x = np.linalg.solve(a, b)
         if abs(x[0] - round(x[0])) < 1e-2 and abs(x[1] - round(x[1])) < 1e-2:
             count += 1
