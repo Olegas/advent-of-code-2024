@@ -40,6 +40,13 @@ around = (north, south, west, east)
 hor = {west, east}
 ver = {north, south}
 
+move_to_dp = {
+    '^': north,
+    'v': south,
+    '>': east,
+    '<': west
+}
+
 cw = {
     north: east,
     east: south,
@@ -91,3 +98,6 @@ def all_small_letters():
 
 def all_digits():
     return [str(i) for i in range(10)]
+
+def clear_screen():
+    print(chr(27) + "[2J")
