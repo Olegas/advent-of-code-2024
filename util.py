@@ -61,6 +61,13 @@ ccw = {
     east: north
 }
 
+none = {
+    north: north,
+    west: west,
+    east: east,
+    south: south
+}
+
 
 def inside(p, dim):
     mx, my = dim
@@ -98,6 +105,7 @@ def all_small_letters():
 
 def all_digits():
     return [str(i) for i in range(10)]
+
 
 def clear_screen():
     print(chr(27) + "[2J")
